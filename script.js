@@ -1,25 +1,19 @@
-function showConfirmation() {
-    // Get form values
-    var eventTitle = document.getElementById("eventTitle").value;
-    var groupName = document.getElementById("groupName").value;
-    var room = document.getElementById("room").value;
+function validateForm() {
+    // Get the selected date and time
+    var selectedDate = new Date(document.getElementById('eventDate').value + ' ' + document.getElementById('eventTime').value);
+    
+    // Check if the event time is on the hour
+    if (selectedDate.getMinutes() !== 0) {
+        alert('Events can only be scheduled on the hour.');
+        return false;
+    }
 
-    // Build confirmation message
-    var confirmationMessage = "Event Title: " + eventTitle + "\n";
-    confirmationMessage += "Group Name: " + groupName + "\n";
-    confirmationMessage += "Room: " + room + "\n";
+    // Check if the event time is between 3 am and 5 am
+    var eventHour = selectedDate.getHours();
+    if (eventHour >= 3 && eventHour < 5) {
+        alert('Events cannot be scheduled between 3 am and 5 am.');
+        return false;
+    }
 
-    // Show custom modal with confirmation message
-    document.getElementById("confirmationMessage").innerText = confirmationMessage;
-    document.getElementById("confirmationButton").style.display = "block";
-    document.getElementById("confirmationModal").style.display = "block";
+    return true;
 }
-
-function confirmEvent() {
-    document.forms[0].submit();
-}
-
-function closeModal() {
-    document.getElementById("confirmationModal").style.display = "none";
-}
-
