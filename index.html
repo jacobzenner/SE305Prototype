@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brookings Activity Center Scheduling System</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Brookings Activity Center</h1>
+    </header>
+
+    <section>
+        <form onsubmit="showConfirmation(); return false;">
+            <h2>Event Scheduling</h2>
+            <label for="eventTitle">Event Title:</label>
+            <input type="text" id="eventTitle" name="eventTitle" required>
+
+            <label for="groupName">Group Name:</label>
+            <input type="text" id="groupName" name="groupName" required>
+
+            <label for="room">Room:</label>
+            <select id="room" name="room" required>
+                <!-- Populate with available rooms dynamically -->
+                <option value="conventionCenterA">Convention Center A</option>
+                <option value="conventionCenterB">Convention Center B</option>
+                <option value="ballroomA">Ballroom A</option>
+                <option value="ballroomB">Ballroom B</option>
+                <option value="theater">Theater</option>
+                <!-- Add other rooms as needed -->
+            </select>
+
+            <!-- Add more input fields for other event details -->
+
+            <button type="submit">Submit Request</button>
+        </form>
+
+        <!-- Custom modal for confirmation -->
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p id="confirmationMessage"></p>
+                <button id="confirmationButton" style="display: none;" onclick="confirmEvent()">Confirm</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+
+
+
