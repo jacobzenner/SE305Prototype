@@ -1,5 +1,3 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brookings Activity Center Event Scheduling</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Include the external JavaScript file -->
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -18,7 +15,6 @@
 
     <main>
         <form id="eventForm" onsubmit="return validateForm()">
-            <!-- Customer Information -->
             <h2>Customer Information</h2>
 
             <label for="contactName">Name:</label>
@@ -36,7 +32,6 @@
             <label for="eventDuration">Expected Duration of Event (hours):</label>
             <input type="number" id="eventDuration" name="eventDuration" required>
 
-            <!-- Event Details -->
             <h2>Event Details</h2>
 
             <label for="eventName">Event Name:</label>
@@ -48,7 +43,6 @@
             <label for="eventTime">Event Time:</label>
             <input type="time" id="eventTime" name="eventTime" required>
 
-            <!-- Room Selection -->
             <h2>Room Selection</h2>
 
             <label>Select one or more rooms:</label>
@@ -88,15 +82,44 @@
                 <label for="roomTheater">Theater</label>
             </div>
 
-            <!-- Event Description -->
+            <!-- Add this section after the Room Selection section -->
+            <h2>Catering</h2>
+
+            <label for="cateringCheckbox">Do you want catering? (Catering specifics will be handled after event confirmation)</label>
+            <select id="cateringCheckbox" name="cateringCheckbox">
+                <option value="Blank"> </option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <div id="cateringSection" style="display: none;">
+                <p>Catering details or additional options can be added here.</p>
+            </div>
+
+            <!-- Add this section after the Catering section -->
+            <h2>Equipment</h2>
+
+            <label for="equipmentCheckbox">Do you need equipment?</label>
+            <select id="equipmentCheckbox" name="equipmentCheckbox">
+                <option value="Blank"> </option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <div id="equipmentSection" style="display: none;">
+                <label for="chairsAmount">Number of Chairs:</label>
+                <input type="number" id="chairsAmount" name="chairsAmount" min="0">
+
+                <label for="tablesAmount">Number of Tables:</label>
+                <input type="number" id="tablesAmount" name="tablesAmount" min="0">
+            </div>
+
             <label for="description">Event Description:</label>
             <textarea id="description" name="description" rows="4" required></textarea>
 
-            <!-- Submit Button -->
             <button type="submit">Submit Event Request</button>
         </form>
     </main>
-
 </body>
 </html>
 
